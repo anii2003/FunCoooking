@@ -1,0 +1,47 @@
+<div class="mt-3">
+  <div class="card" style="width: 100%">
+    <div class="card-body" width="100%">
+      <span class="h3">Lista de Productos</span>
+      <button
+        class="btn btn-dark btn-lg float-right mx-4"
+        (click)="redirectToURL('create-producto')"
+      >
+        Agregar
+      </button>
+      <div>
+        <h5 *ngIf="products.length == 0">No data to display</h5>
+        <table *ngIf="products.length > 0" class="table table-striped mt-5">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Imágen</th>
+              <th>Nombre Científico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td class="col">
+                {{ product.name }}
+                <button
+                  (click)="redirectToURL('update-producto/' + product.id)"
+                >
+                  <a>Editar</a>
+                </button>
+                <button
+                (click)="deleteProducts(product.id)">
+                  <a>Eliminar</a>
+                </button>
+              </td>
+              <td>
+                <div *ngFor="let imageUrl of product.image">
+                  <img [src]="imageUrl" alt="Image" width="250" />
+                </div>
+              </td>
+              <td>{{ product.scientific_name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

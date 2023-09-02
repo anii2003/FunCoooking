@@ -1,0 +1,114 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="encabezado">
+  <div class="logo">
+    <img
+      src="./../../../assets/Logos/EcuaTaste.png"
+      alt=""
+      style="height: 3em; margin-bottom: 7px"
+    />
+    <h1 style="font-family: Montserrat; font-size: 130%">Fun Cooking</h1>
+  </div>
+
+  <div class="botones">
+    <button mat-button (click)="redirectToURL('inicio')" class="custom-button">
+      Inicio
+    </button>
+
+    <!-- <button mat-button><a routerLink="formulario">Formulario</a></button> -->
+
+    <!-- <button mat-button><mat-icon>search</mat-icon></button> -->
+
+    <button
+      mat-button
+      [matMenuTriggerFor]="cocinas"
+      (dblclick)="redirectToURL('cocinas')"
+    >
+      Cocinas
+    </button>
+    <mat-menu #cocinas="matMenu">
+      <ng-container *ngFor="let ruta of rutas">
+        <button
+          mat-menu-item
+          [matMenuTriggerFor]="submenu"
+          (click)="redirectToURL(ruta.route)"
+          [routerLink]="ruta.route"
+          routerLinkActive="active"
+        >
+          {{ ruta.name }}
+          <!-- crea dinámicamente los botones : mundo salado, dulce, bebidas, etc  -->
+        </button>
+        <mat-menu #submenu="matMenu">
+          <button
+            mat-menu-item
+            *ngFor="let subruta of ruta.sub_rutas"
+            (click)="redirectToURL(subruta.route)"
+            [routerLink]="subruta.route"
+            routerLinkActive="active"
+          >
+            {{ subruta.name }}
+            <!-- Cuando se selecciona un mundo en específico te crea el siguiente sub menu -->
+          </button>
+        </mat-menu>
+      </ng-container>
+    </mat-menu>
+
+    <button
+      mat-button
+      (click)="redirectToURL('locales')"
+      routerLinkActive="active"
+    >
+      Locales
+    </button>
+
+    <button
+      mat-button
+      (click)="redirectToURL('contacto')"
+      routerLinkActive="active"
+    >
+      Contactos
+    </button>
+
+    <!--  -->
+
+    <!--Aparece o no el botón de admin-->
+    <button mat-button [matMenuTriggerFor]="admin" *ngIf="isAdmin">
+      Administrador
+    </button>
+    <mat-menu #admin="matMenu">
+      <!-- <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button> -->
+
+      <button mat-menu-item>
+        <a (click)="redirectToURL('products')" routerLinkActive="active"
+          >Lista Productos</a
+        >
+      </button>
+      <button mat-menu-item>
+        <a (click)="redirectToURL('recipes')" routerLinkActive="active"
+          >Lista de Recetas</a
+        >
+      </button>
+    </mat-menu>
+
+    <!--  -->
+
+    <!-- <button
+      mat-button
+      (click)="redirectToURL('login')"
+      routerLinkActive="active"
+    >
+      <a><mat-icon>account_circle</mat-icon></a>
+    </button> -->
+
+    <button mat-button [matMenuTriggerFor]="user" >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #user="matMenu">
+      <!-- <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button> -->
+
+      <button mat-menu-item (click)="logout()">Cerrar Sesión</button>
+    </mat-menu>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="main-container">
+  <main class="main-container2">
+    <div class="big-container">
+      <h1 class="logo">Fun Cooking</h1>
+      <div class="img-logo">
+        <img
+          src="../../../assets/Logos/EcuaTaste.png"
+          alt=""
+          class="imagenlogo"
+        />
+      </div>
+    </div>
+
+    <div class="small-container">
+      <h2 class="title">Iniciar Sesión</h2>
+      <div class="form-container">
+        <form class="form" autocomplete="off">
+          <div class="form-field">
+            <label for="mail" class="label">Correo Electrónico</label>
+            <input id="mail" type="email" name="email" [(ngModel)]="email" />
+          </div>
+          <div class="form-field">
+            <label for="password" class="label">Contraseña</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              [(ngModel)]="password"
+            />
+          </div>
+          <button mat-button class="btn-submit" (click)="login()">
+            Continuar
+          </button>
+          <button mat.button class="btn-submit" (click)="login_msal()">
+            Iniciar Sesión UTPL
+          </button>
+          <!-- <div class="flex-center">
+          <p class="help">¿No tienes cuenta? <span routerLink="/register">Crea tu cuenta</span></p>
+      </div> -->
+        </form>
+      </div>
+    </div>
+  </main>
+</div>

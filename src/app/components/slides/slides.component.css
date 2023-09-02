@@ -1,0 +1,32 @@
+.slide-container {
+  display: flex;
+  padding: 1.3em;
+}
+
+.img-container{
+  width: 50%;
+  display: grid;
+  align-items: center;
+  justify-content: end;
+  padding: 2em;
+}
+
+img {
+  height: 300px;
+  min-width: 300px;
+  max-width: 400px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.content-container{
+  width: 50%;
+  max-width: 400px;
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  padding: 2em;
+  padding-right: 8em;
+}
+
+

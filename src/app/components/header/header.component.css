@@ -1,0 +1,29 @@
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fa9c30;
+  /* padding: 0 3em; */
+  max-height: 3.5em;
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  align-items: center;
+}
+
+/* .menu {
+  display: flex;
+  gap: 10px;
+} */
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 1px;
+}

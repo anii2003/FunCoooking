@@ -1,0 +1,29 @@
+<div class="flip-card tarjeta">
+  <div
+    class="flip-card-inner"
+    [style.background]="'url(' + data.img + ')'"
+    [ngStyle]="{
+      'background-color': data.img === '' ? '#e69537' : 'transparent',
+      'background-size': 'cover',
+      'background-repeat': 'no-repeat',
+      'background-position': 'center'
+    }"
+    style="border-radius: 20px;"
+  >
+    <div class="flip-card-front tarjeta">
+      <div class="contenido">
+        <h2 style="color: #fff;">{{ data.title }}</h2>
+      </div>
+    </div>
+
+    <div class="flip-card-back tarjeta">
+      <div class="contenido">
+        <h3>{{ data.title }}</h3>
+        <p>{{ data.description }}</p>
+        <!--<div class="boton">
+          <button><a [routerLink]="data.url">Mostrar más</a></button>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>
